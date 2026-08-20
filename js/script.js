@@ -211,33 +211,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       CONTACT FORM
+        CONTACT FORM
        ===================================================== */
 
-    const contactForm = document.querySelector(".contact-form");
+   const contactForm = document.getElementById("contactForm");
 
-    if (contactForm) {
+if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-        contactForm.addEventListener("submit", function (e) {
+        const message = document.getElementById("message").value.trim();
 
-            e.preventDefault();
+        if (!message) {
+            alert("Please enter your message.");
+            return;
+        }
 
-            const name = contactForm
-                .querySelector('input[placeholder="Your Name"]')
-                ?.value.trim();
+        // अपना WhatsApp नंबर डालो
+        const whatsappNumber = "919889615423";
 
-            const email = contactForm
-                .querySelector('input[placeholder="Your Email"]')
-                ?.value.trim();
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(message);
 
-            const subject = contactForm
-                .querySelector('input[placeholder="Subject"]')
-                ?.value.trim();
-
-            const message = contactForm
-                .querySelector("textarea")
-                ?.value.trim();
-
+        window.open(whatsappURL, "_blank");
+    });
+}
 
             /* Basic validation */
 
@@ -283,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       TYPING EFFECT
+        TYPING EFFECT
        ===================================================== */
 
     const typingElement = document.querySelector(".hero h2 span");
@@ -355,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       PROJECT CARD HOVER EFFECT
+        PROJECT CARD HOVER EFFECT
        ===================================================== */
 
     const projectCards =
@@ -394,7 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       CURRENT YEAR
+        CURRENT YEAR
        ===================================================== */
 
     const footer = document.querySelector("footer");
@@ -417,7 +418,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       DOWNLOAD CV BUTTON
+        DOWNLOAD CV BUTTON
        ===================================================== */
 
     const downloadCV =
@@ -435,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       CONSOLE MESSAGE
+        CONSOLE MESSAGE
        ===================================================== */
 
     console.log(
